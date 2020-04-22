@@ -1,0 +1,36 @@
+<h1>Vehicles#index</h1>
+<p>Find me in app/views/vehicles/index.html.erb</p>
+
+<h1>Listing vehicles for LCV owner</h1>
+ 
+ 
+<table>
+  <tr>
+    <th>name</th>
+    <th>brand</th>
+    <th>model</th>
+    <th>capacity</th>
+    <th>permit type</th>
+    <th>body type</th>
+  </tr>
+ 
+<% @vehicles.each do |vehicle| %>
+  <tr>
+    <td><%= vehicle.name %></td>
+    <td><%= vehicle.brand %></td>
+    <td><%= vehicle.model %></td>
+    <td><%= vehicle.capacity %></td>
+    <td><%= vehicle.permit_type %></td>
+    <td><%= vehicle.body_type %></td>
+    <td><%= link_to 'Show', vehicle %></td>
+    <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
+    <td><%= link_to 'delete', vehicle, :confirm => 'Are you sure?',
+                                     :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+ 
+
+<%= link_to 'New vehicle', new_vehicle_path %>

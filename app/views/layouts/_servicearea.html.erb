@@ -1,0 +1,30 @@
+ 
+<%= form_for(@servicearea) do |f| %>
+  <% if @servicearea.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@servicearea.errors.count, "error") %> prohibited
+        this post from being saved:</h2>
+    <ul>
+    <% @servicearea.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :pincode %><br />
+    <%= f.text_field :pincode %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :vehicle_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

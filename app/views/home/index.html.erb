@@ -1,0 +1,15 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<% if current_user %>
+  <%= link_to 'Logout-user' ,destroy_user_session_path, method: :delete%>
+  <%= link_to 'edit-user' ,edit_user_registration_path%>
+
+<% elsif current_lcvowner %>
+  <%= link_to 'Logout-lcvowner' ,destroy_lcvowner_session_path, method: :delete%>
+  <%= link_to 'edit-lcvowner' ,edit_lcvowner_registration_path%>
+  <%= link_to 'listVehicles-lcvowner' ,vehicles_path%>
+
+<% else %>
+  <%= link_to 'HOME' ,root_path%>
+<% end %>

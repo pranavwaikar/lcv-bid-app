@@ -1,0 +1,73 @@
+<h1>Vehicles#update</h1>
+<p>Find me in app/views/vehicles/update.html.erb</p>
+
+<h1>show vehicle</h1>
+
+
+<p id="notice"><%= notice %></p>
+ 
+ <p>
+  <b>ID:</b>
+  <%= @vehicle.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @vehicle.name %>
+</p>
+ 
+<p>
+  <b>brand:</b>
+  <%= @vehicle.brand %>
+</p>
+ 
+<p>
+  <b>model:</b>
+  <%= @vehicle.model %>
+</p>
+ 
+  
+<p>
+  <b>capacity:</b>
+  <%= @vehicle.capacity %>
+</p>
+ 
+  
+<p>
+  <b>permit_type:</b>
+  <%= @vehicle.permit_type %>
+</p>
+ 
+  
+<p>
+  <b>body_type:</b>
+  <%= @vehicle.body_type %>
+</p>
+
+<h1>Listing service areas for this vehicle</h1>
+ 
+ 
+<table>
+  <tr>
+    <th>name</th>
+    <th>pincode</th>
+  </tr>
+ 
+<% @serviceareas.each do |servicearea| %>
+  <tr>
+    <td><%= servicearea.name %></td>
+    <td><%= servicearea.pincode %></td>
+
+    <td><%= link_to 'Edit', edit_servicearea_path(servicearea) %></td>
+    <td><%= link_to 'delete', servicearea, :confirm => 'Are you sure?',
+                                     :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+
+ 
+<%= link_to 'Add new service area', new_servicearea_path(vehicle_id: @vehicle.id) %> |
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

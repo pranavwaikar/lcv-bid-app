@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  brand: MyString
+  model: MyString
+  capacity: 1.5
+  permit_type: MyString
+  body_type: MyString
+  lcvowner: one
+
+two:
+  name: MyString
+  brand: MyString
+  model: MyString
+  capacity: 1.5
+  permit_type: MyString
+  body_type: MyString
+  lcvowner: two
