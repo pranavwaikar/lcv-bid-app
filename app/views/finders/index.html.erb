@@ -1,0 +1,70 @@
+<h1>Finders#index</h1>
+<p>Find me in app/views/finders/index.html.erb</p>
+
+<%= form_tag(finders_index_path, :method => "get") do %>
+  <div class="field">
+    <%= label_tag(:brand) %>
+    <%= text_field_tag(:brand) %>
+  </div>
+  <div class="field">
+    <%= label_tag(:model) %>
+    <%= text_field_tag(:model) %>
+  </div>
+  <div class="field">
+    <%= label_tag(:capacity) %>
+    <%= text_field_tag(:capacity) %>
+  </div>
+  <div class="field">
+    <%= label_tag(:body_type) %>
+    <%= text_field_tag(:body_type) %>
+  </div>  
+  <div class="field">
+    <%= label_tag(:permit_type) %>
+    <%= text_field_tag(:permit_type) %>
+  </div>
+  <div class="field">
+    <%= label_tag(:pincode) %>
+    <%= text_field_tag(:pincode, nil, :required => true) %>
+  </div>
+  <div class="actions">
+    <%= submit_tag("Find") %>
+  </div>
+<% end %>
+
+<% if @targetlist.length == 0 %>
+  <h2> Enter search params to get result !</h2>
+  <h2> OR No available for given criteria..Enter different search params.  !</h2>
+<% else%>
+
+  <h1>Listing vehicles</h1>
+  
+  
+  <table>
+    <tr>
+      <th>name</th>
+      <th>brand</th>
+      <th>model</th>
+      <th>capacity</th>
+      <th>permit type</th>
+      <th>body type</th>
+    </tr>
+  
+  <% @targetlist.each do |vehicle| %>
+    <tr>
+      <td><%= vehicle.name %></td>
+      <td><%= vehicle.brand %></td>
+      <td><%= vehicle.model %></td>
+      <td><%= vehicle.capacity %></td>
+      <td><%= vehicle.permit_type %></td>
+      <td><%= vehicle.body_type %></td>
+      <td><%= link_to 'Show', vehicle %></td>
+    </tr>
+  <% end %>
+  </table>
+  
+  <br />
+
+<% end %>
+
+ 
+

@@ -33,7 +33,16 @@ class VehiclesController < ApplicationController
 
   def show
     @vehicle = Vehicle.find(params[:id])
+    @lcvowner = @vehicle.lcvowner
     @serviceareas = @vehicle.serviceareas
+    @isOwner = false
+  
+    if current_user
+      @isOwner = false;
+    elsif current_lcvowner
+      @isOwner = true;
+    end
+
   end
 
   def destroy

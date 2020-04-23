@@ -4,6 +4,7 @@
 <% if current_user %>
   <%= link_to 'Logout-user' ,destroy_user_session_path, method: :delete%>
   <%= link_to 'edit-user' ,edit_user_registration_path%>
+  <%= link_to 'list lcvowners' ,finders_index_path%>
 
 <% elsif current_lcvowner %>
   <%= link_to 'Logout-lcvowner' ,destroy_lcvowner_session_path, method: :delete%>
@@ -12,4 +13,8 @@
 
 <% else %>
   <%= link_to 'HOME' ,root_path%>
+  <%= link_to 'Login  - lcvowner' ,new_lcvowner_session_path%>
+  <%= link_to 'Signup - lcvowner' ,new_lcvowner_registration_path%>
+  <%= link_to 'Login  - user' ,new_user_session_path%>
+  <%= link_to 'Signup - user' ,new_user_registration_path%>
 <% end %>

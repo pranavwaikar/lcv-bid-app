@@ -7,8 +7,8 @@
 <p id="notice"><%= notice %></p>
  
  <p>
-  <b>ID:</b>
-  <%= @vehicle.id %>
+  <b>LCV Owner:</b>
+  <%= @lcvowner.email %>
 </p>
 
 <p>
@@ -57,17 +57,21 @@
   <tr>
     <td><%= servicearea.name %></td>
     <td><%= servicearea.pincode %></td>
-
-    <td><%= link_to 'Edit', edit_servicearea_path(servicearea) %></td>
-    <td><%= link_to 'delete', servicearea, :confirm => 'Are you sure?',
-                                     :method => :delete %></td>
+    <% if @isOwner %>
+      <td><%= link_to 'Edit', edit_servicearea_path(servicearea) %></td>
+      <td><%= link_to 'delete', servicearea, :confirm => 'Are you sure?',
+                                      :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
  
 <br />
 
- 
-<%= link_to 'Add new service area', new_servicearea_path(vehicle_id: @vehicle.id) %> |
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %>
+ <% if @isOwner %>
+  <%= link_to 'Add new service area', new_servicearea_path(vehicle_id: @vehicle.id) %> |
+  <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+  <%= link_to 'Back to listings', vehicles_path %> |
+<% else %>
+<%= link_to 'Back', :back %>
+<% end %>
