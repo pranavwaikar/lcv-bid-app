@@ -12,7 +12,7 @@
   <%= link_to 'listVehicles-lcvowner' ,vehicles_path%>
 
 <% else %>
-  <%= link_to 'HOME' ,root_path%>
+  <%= link_to 'HOME' ,root_path, class: "btn btn-primary"%>
   <%= link_to 'Login  - lcvowner' ,new_lcvowner_session_path, class:"btn btn-primary"%>
   <%= link_to 'Signup - lcvowner' ,new_lcvowner_registration_path, class:"btn btn-primary"%>
   <%= link_to 'Login  - user' ,new_user_session_path, class:"btn btn-success" %>
